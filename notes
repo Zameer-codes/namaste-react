@@ -1,0 +1,15 @@
+React can be initialised using CDN (content delivery network)
+we are fetching react library from a hosted environment through CDN
+
+search :
+    CDN
+    crossorigin
+
+most expensive operation is manipulating nodes in DOM
+all js libraries are trying to optimise these operations
+
+React.createElement will create an object with props and details about element
+
+root.render will take this object and convert it to element/tag and renders
+
+CDN links should be first before any scripts since it executes in the order
