@@ -1,3 +1,6 @@
+Episode - 01
+------------
+
 React can be initialised using CDN (content delivery network)
 we are fetching react library from a hosted environment through CDN
 
@@ -13,3 +16,119 @@ React.createElement will create an object with props and details about element
 root.render will take this object and convert it to element/tag and renders
 
 CDN links should be first before any scripts since it executes in the order
+
+CDN - Content Delivery Network
+    > it is in between original server and end user
+    > this caches content by minifying it from the original server and make it available across all cdn edge servers which makes faster execution
+    > reduces carbon footprint and traffic on original server
+    > it manages different versions of cache
+    > it is being used in top FAANG MAANG companies for fastest availability and infrastructure
+
+Crossorigin :
+    > it is an html attribute
+    > it basically allows request resources from another domain
+    > Cors - Cross Origin Resource Sharing
+    > it is used for sharing securely and to specific domains
+    > preventing DDOS attacks
+
+
+
+Episode -02
+-----------
+
+npm doesn't have a full form, there is no abbrevation
+it does not stand for node package manager but it manages node packages
+
+react alone does not make it faster but it requires other packages
+one of the important package is bundlers
+    > webpack
+    > vite
+    > parcel
+
+-D says we install package as dev dependency
+
+" ^ " this is caret symbol where you see this in dependency versions, it basically updates the minor versions like
+
+2.8.3 can be auto updated to 2.8.4 if there is a release
+
+" ~ " this is tilda symbol similarly we use like caret but the difference is it updates to major versions like
+
+2.8.3 to 3.0.1(latest)
+
+pacakage-lock.json : 
+    - this file keeps exact version of the package to avoid local and production difference issues
+    - this makes sure to run the same version of packages so to get same output in different environments
+    - integrity is a property where it has hash of sha256 about the package which makes it unique
+
+package.json is a configuration
+
+nodemodules :
+    - when you install a package it goes to npm and pull all the code related to package along with parcel's dependencies
+    - deep nested dependencies ==> transitive dependencies
+
+npm --> just calling/installing the command
+npx --> executing the package
+
+Parcel : 
+    - Dev Build
+    - Local Server
+    - HMR = Hot Module Replacement
+    - File Watching Algorithm
+    - Caching - Faster Builds
+    - Image Optimisation
+    - Minification
+    - Bundling
+    - Compress
+    - Consistent Hashing
+    - Code Splitting
+    - Differential Bundling - support older browsers
+    - Diagnostic
+    - Error Handling
+    - HTTPS
+    - Tree Shaking Algorithm - remove unused code
+    - Different dev and prod bundles
+
+npx parcel index.html --> development
+npx parcel build index.html --> production
+
+browserslist -> handles to support specified browser versions
+
+
+normal script tag :
+    - html parsing will go 
+    - if script tag is encountered, then holds parsing and fetches script and executes it and then continue with parsing
+
+async script tag :
+    - if script tag is encountered, it will not hold parsing and fetches script
+    - and then it holds parsing and executes script and then continue with parsing
+
+defer script tag :
+    - if script tag is encountered, it will not hold parsing and fetches script
+    - after parsing, it will continue with script execution
+
+
+Episode - 03 
+------------
+
+JSX :
+    - jsx is not js+html, it is js+html like syntax
+    - it is for developer and reading friendly
+    - ES6 and browser does not understand jsx syntax
+    - Babel is responsible for for transpiling(converting) jsx to js
+    
+Babel :
+    - it is literally like converts to React.createElement output format where it gives pure js object and can be rendered by ReactDOM
+    - it also makes code to support ES5 for older browsers
+
+CSS (cross-site-scripting):
+    - when you write js code inside jsx you use {} 
+    - JSX takes care of sanitisizing the content rendered inside {} and avoid security issues
+    - CSS is having control of js inside the browser to the outside user
+
+Functional Component :
+    - it is nothing but a function which returns JSX
+    - name should be in Pascal case
+    - when rendering a function it should be wrapped with </>(tags)
+    - it can also be called as a function but with {} enclosed
+    
+
