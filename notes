@@ -132,3 +132,10 @@ Functional Component :
     - it can also be called as a function but with {} enclosed
     
 
+Episode - 04
+------------
+
+React doesn't recommend to use index as keys when rendering list
+use unique id's for keys
+
+
