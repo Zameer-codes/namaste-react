@@ -139,3 +139,31 @@ React doesn't recommend to use index as keys when rendering list
 use unique id's for keys
 
 
+
+Episode - 05
+------------
+
+Import, Export types :
+    - default export
+    - named export
+
+Reconciliation Algorithm :
+    - React Fiber(performs dom optimised manipulation) introduced in React 16
+    - Diff Algorithm responsible for finding differences between two virtual doms
+    - object representation of elements is virtual dom
+    - incremental rendering
+
+github repo : acdlite/react-fiber-architecture
+
+- this process is the React's core feature, it is why react is fast
+- whenever there is a change in state or dom this reconciliation process comes into picture
+- this will first get the virtual dom of previous version and creates a new virtual dom of current version/state
+- then diff algorithm takes these two virtual doms and compare them effectively and find the differences
+- now react updates these changes into real dom effectively in optimised way and makes it fast rendering
+- when you say virtual dom, it will be in a object format like wjen you console jsx it contains nodes and detailed json structure of props
+- but when you say real dom it is the actual html elements
+- comparing real doms directly is too costly and slow process that is why react uses virtual doms and makes it faster
+
+virtual dom existed before react, it is not a react thing but react used it effectively
+
+when you update state the setstate function triggers reconciliation process and makes a re-render
