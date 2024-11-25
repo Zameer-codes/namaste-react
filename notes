@@ -167,3 +167,32 @@ github repo : acdlite/react-fiber-architecture
 virtual dom existed before react, it is not a react thing but react used it effectively
 
 when you update state the setstate function triggers reconciliation process and makes a re-render
+
+
+Episode - 06
+------------
+
+- whenever you update state it will store the updated value onrun and calls the function again to re-render and assigns new value and reconciliation process takes from there
+- that's why react is faster
+- shimmer
+- useEffect
+- api fetching and rendering
+
+
+Episode - 07
+------------
+
+- if I use useEffect with no dependency array at all then it executes for every re-render
+- react router dom 
+- for navigation in react never use anchor tag <a></a>
+- because it reloads the entire page
+- use Link by react router dom 
+
+2 types of Routing in Web Apps :
+    - Client Side Routing
+        - pages are built from client(browser) side and will not make request to server for html pages
+    - Server Side Routing
+        - pages are built from server side and will be fetched from server for html pages
+
+- React is known as Single Page Application (SPA) because of CSR, it will not refreshes the page while routing
+
