@@ -38,18 +38,18 @@ const Body = () => {
   if(restaurantsList.length <= 0) return <Shimmer/>
 
   return (
-    <div className="body">
-      <div className="search-container">
+    <div className="w-[100%]">
+      <div className="flex justify-center mt-8">
         <input
           onChange={(e) => setSearchText(e.target.value)}
           value={searchText}
-          className="search-input"
+          className="w-80 mr-4 h-10 rounded-lg hover:border-blue-300 border focus:ring  p-4"
         />
-        <button onClick={handleSearch} className="search-button">
+        <button onClick={handleSearch} className="rounded-lg bg-blue-400 px-4 text-slate-100">
           Search
         </button>
       </div>
-      <h1>Welcome to the Food App!</h1>
+      <h1 className="flex my-6 text-lg justify-center">Welcome to the Food App!</h1>
       <button
         onClick={() => {
           let filteredList = searchedRestaurants.filter(
@@ -58,16 +58,16 @@ const Body = () => {
           setSearchedRestaurants(filteredList);
           setIsTopRated(true);
         }}
-        className={isTopRated ? "is-top-rated" : ""}
+        className={`h-8 border border-slate-300 text-slate-800 px-4 ml-4 rounded-lg ${isTopRated?"bg-red-400 text-white":""}`}
       >
         Top rated restaurants
       </button>
       {isTopRated ? (
-        <button onClick={() => setIsTopRated(false)}>X</button>
+        <button onClick={() => setIsTopRated(false)} className="border bg-slate-300 rounded-md px-2 ml-2">X</button>
       ) : (
         <></>
       )}
-      <div className="restaurant-container">
+      <div className="flex flex-wrap gap-4 mt-6 mx-4 overflow-scroll-auto">
         {searchedRestaurants &&
           searchedRestaurants.map((restaurant) => {
             return (

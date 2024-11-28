@@ -196,3 +196,19 @@ Episode - 07
 
 - React is known as Single Page Application (SPA) because of CSR, it will not refreshes the page while routing
 
+
+Episode - 08
+------------
+
+- clean setInterval
+
+Episode - 09
+------------
+
+- use modularity for better testing
+- can cover complete business case for testing
+- hooks are just a utility functions
+- Splitting bundles
+    - use lazy loading for separating it out
+    - suspense wrapper
+    
