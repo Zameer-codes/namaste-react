@@ -1,5 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
-import restaurantsMockData from "../utils/mockData";
+import RestaurantCard, {withAvailabilityLabel} from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import { fetchRestaurants } from "../api/api";
 import { Link } from "react-router-dom";
@@ -10,6 +9,7 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
   const [searchedRestaurants, setSearchedRestaurants] = useState([]);
   const [isTopRated, setIsTopRated] = useState(false);
+  const RestaurantWithAvailability = withAvailabilityLabel(RestaurantCard);
 
   const handleSearch = () => {
     console.log(searchText);
@@ -72,9 +72,10 @@ const Body = () => {
           searchedRestaurants.map((restaurant) => {
             return (
               <Link to = {"/menu/"+restaurant?.info?.id} key={restaurant.info.id} className="menu-item-link">
-                <RestaurantCard
+                {/* <RestaurantCard
                   restaurantDetails={restaurant.info}
-                />
+                /> */}
+                <RestaurantWithAvailability restaurantDetails={restaurant.info}/>
               </Link>
             );
           })}

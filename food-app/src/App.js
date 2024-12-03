@@ -12,6 +12,7 @@ import Contact from "./components/Contact";
 import MenuCard from "./components/Menucard";
 import { lazy, Suspense } from "react";
 import Login from "./components/Login";
+import { UserProvider } from "./utils/UserContext";
 
 const Cart = lazy(() => import("./components/Cart"));
 
@@ -28,8 +29,8 @@ const FoodApp = () => {
 
 const appRouter = createBrowserRouter([
   {
-    path:'/login',
-    element: <Login/>
+    path: "/login",
+    element: <Login />,
   },
   {
     path: "/",
@@ -67,7 +68,7 @@ const appRouter = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-  <RouterProvider
-    router={appRouter}
-  />
+  <UserProvider>
+    <RouterProvider router={appRouter} />
+  </UserProvider>
 );

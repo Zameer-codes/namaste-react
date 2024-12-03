@@ -212,3 +212,31 @@ Episode - 09
     - use lazy loading for separating it out
     - suspense wrapper
     
+Episode - 10
+------------
+
+- Tailwind css
+
+
+Episode - 11
+------------
+
+Higher Order Components (HOC)
+    - it takes a component and returns a component
+    - it enhances the component
+    - we will not modify the input component directly, we just append a feature/enhancement to the original component
+    - at the end HOC are just a normal functions act like pure functions
+
+Context
+    - it comes with three components
+        - createContext
+        - Provider
+        - Consumer (useContext)
+    
+    - can be created multiple contexts
+    - consumer is used to access the values from context
+        - in functional components, useContext(contextName)
+        - in class based components, <contextName.Consumer>{(contextValues) => { return()}} </contextName.Consumer>
+
+    - provider is used to wrap components where the values will be accessible inside this wrap
+        - can also maintain state and inject them here and render the children

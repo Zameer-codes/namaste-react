@@ -1,39 +1,40 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { Food_ITEM_URL, Menu_URL } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import useMenu from "../utils/useMenu";
+import ItemList from "./ItemList";
 
 const MenuCard = () => {
   const { resId } = useParams();
+  const [showItems, setShowItems] = useState(0);
 
   const menu = useMenu(resId);
 
   if (menu === null || menu.length <= 0) return <Shimmer />;
+
+  const categories = menu[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
+    (c) =>
+      c.card?.card?.["@type"] ===
+      "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+  );
+
   return (
-    <div className="w-full">
-        <h2 className="flex font-bold text-lg justify-center">Menu</h2>
-      {menu &&
-        menu.map((item) => {
-          const { id, name, price, imageId, description } = item?.card?.info;
-          return (
-            <div key={id} className="bg-slate-100 my-4 flex justify-between px-6 py-4">
-              <div>
-                <h3 className="font-bold mb-4">{name}</h3>
-                <p>Rs. {price/100}/-</p>
-                <p className="text-slate-500">{description}</p>
-              </div>
-              {imageId ? (
-                <img
-                  src={Food_ITEM_URL + imageId}
-                  className="w-32 rounded-lg"
-                />
-              ) : (
-                <></>
-              )}
-            </div>
-          );
-        })}
+    <div className="wx-screen flex flex-col items-center">
+      <div className="my-8 bg-slate-200 p-4 rounded-lg shadow-lg">
+        <h1 className="font-bold text-lg flex justify-center">
+          {menu && menu[0].card?.card?.text}
+        </h1>
+      </div>
+      <div className="w-6/12">
+        {categories &&
+          categories.map((category, index) => (
+            <ItemList
+              category={category}
+              showItems={showItems === index}
+              setShowItems={() => setShowItems(index)}
+            />
+          ))}
+      </div>
     </div>
   );
 };
