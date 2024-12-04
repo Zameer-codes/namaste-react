@@ -1,12 +1,19 @@
 import { Food_ITEM_URL } from "../utils/constants";
+import {useDispatch} from "react-redux";
+import { addToCart } from "../utils/redux/cartSlice";
 
 const ItemList = (props) => {
   const { category, showItems, setShowItems } = props;
-
+  const dispatch = useDispatch();
 
   const handleClick = () => {
     setShowItems();
   };
+
+  const handleAddToCart = (item) =>{
+    dispatch(addToCart(item));
+  }
+
   return (
     <div className="mb-6 p-4 border-b-2 bg-slate-100 rounded-md shadow-lg">
       <div
@@ -33,7 +40,12 @@ const ItemList = (props) => {
                 <p className="text-slate-500 text-xs">{description}</p>
               </div>
               <div className="relative">
-                <div className="absolute bg-amber-500 text-white px-2 py-1 flex justify-center left-1/4 top-3/4 cursor-pointer rounded-lg transform transition-transform duration-300 hover:scale-110 hover:translate-z-2">Add +</div>
+                <div
+                  onClick={() => handleAddToCart(item)}
+                  className="absolute bg-amber-500 text-white px-2 py-1 flex justify-center left-1/4 top-3/4 cursor-pointer rounded-lg transform transition-transform duration-300 hover:scale-110 hover:translate-z-2"
+                >
+                  Add +
+                </div>
                 {imageId ? (
                   <img
                     src={Food_ITEM_URL + imageId}

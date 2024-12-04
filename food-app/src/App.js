@@ -13,6 +13,8 @@ import MenuCard from "./components/Menucard";
 import { lazy, Suspense } from "react";
 import Login from "./components/Login";
 import { UserProvider } from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/redux/appStore";
 
 const Cart = lazy(() => import("./components/Cart"));
 
@@ -68,7 +70,9 @@ const appRouter = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-  <UserProvider>
-    <RouterProvider router={appRouter} />
-  </UserProvider>
+  <Provider store={appStore}>
+    <UserProvider>
+      <RouterProvider router={appRouter} />
+    </UserProvider>
+  </Provider>
 );

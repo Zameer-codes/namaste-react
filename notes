@@ -240,3 +240,30 @@ Context
 
     - provider is used to wrap components where the values will be accessible inside this wrap
         - can also maintain state and inject them here and render the children
+
+
+Episode - 12
+------------
+
+- Redux-Toolkit (@reduxjs/toolkit --> npm package)
+    - RTK Architecture
+        - Event raise
+            - dispatch action
+                - action calls reducer function
+                    - reducer updates the state/slice in the store
+                        - state is subscribed by a component
+
+- there are two versions of redux
+    - vanilla redux (old and complex one)
+    - redux toolkit (new and simpler one)
+
+- to use redux, we need two packages
+    - @reduxjs/toolkit --> for redux usage and setup
+    - react-redux --> for behavinf like a bridge between react and redux
+
+- here also similarly, we need to wrap in a provider for access like context api
+
+- redux behind the scenes uses immer package for mutating state
+
+- explore on RTQ query in redux docs
+    - refernce: https://redux-toolkit.js.org/tutorials/rtk-query
