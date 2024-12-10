@@ -10,7 +10,7 @@ const useMenu = (resId) => {
 
     const fetchMenu = async (resId) => {
         const response = await fetch(Menu_URL+resId);
-        const data = await response.json();
+        const data = response.json();
         setMenu(data?.data?.cards);
     }
 

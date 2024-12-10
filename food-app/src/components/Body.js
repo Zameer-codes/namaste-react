@@ -28,24 +28,25 @@ const Body = () => {
     const getRestaurantsList = async () => {
       const json = await fetchRestaurants();
       const restaurants =
-        json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants;
+        json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
       setRestaurantsList(restaurants);
       setSearchedRestaurants(restaurants);
     };
     getRestaurantsList();
   }, []);
 
-  if(restaurantsList.length <= 0) return <Shimmer/>
+  if(!restaurantsList ||restaurantsList.length <= 0) return <Shimmer/>
 
   return (
     <div className="w-[100%]">
       <div className="flex justify-center mt-8">
         <input
+          data-testid="searchInput"
           onChange={(e) => setSearchText(e.target.value)}
           value={searchText}
           className="w-80 mr-4 h-10 rounded-lg hover:border-blue-300 border focus:ring  p-4"
         />
-        <button onClick={handleSearch} className="rounded-lg bg-blue-400 px-4 text-slate-100">
+        <button data-testid="searchBtn" onClick={handleSearch} className="rounded-lg bg-blue-400 px-4 text-slate-100">
           Search
         </button>
       </div>

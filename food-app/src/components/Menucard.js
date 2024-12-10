@@ -29,6 +29,7 @@ const MenuCard = () => {
         {categories &&
           categories.map((category, index) => (
             <ItemList
+              key={index}
               category={category}
               showItems={showItems === index}
               setShowItems={() => setShowItems(index)}

@@ -267,3 +267,23 @@ Episode - 12
 
 - explore on RTQ query in redux docs
     - refernce: https://redux-toolkit.js.org/tutorials/rtk-query
+
+
+Episode - 13
+------------
+
+- Testing
+    - React Testing Library
+    - Jest
+
+- Steps :
+    - install react testing library --> @testing-library/react
+    - install jest
+    - configure babel for jest
+    - install babel dependencies
+    - configure parcel to disable default babel transpilation
+    - jest configuration --> npx jest --init
+    - install jest-environment-jsdom for 29 above versions
+    - install @babel/preset-react to make jsx work in test cases
+    - include @babel-preset-react in babel.config.json
+    - install @testing-library/jest-dom

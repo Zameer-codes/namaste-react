@@ -11,7 +11,7 @@ const RestaurantCard = (props) => {
     avgRatingString,
   } = restaurantDetails;
   return (
-    <div className="w-[250px] hover:bg-slate-300 rounded-lg">
+    <div data-testid="resCard" className="w-[250px] hover:bg-slate-300 rounded-lg">
       <img
         className="rounded-lg h-52 w-full"
         src={FOOD_URL + cloudinaryImageId}

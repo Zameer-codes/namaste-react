@@ -4,7 +4,7 @@ const CartItem = (props) => {
   const { item } = props;
   const { id, name, price, imageId, description } = item?.card?.info;
   return (
-    <div key={id} className="bg-slate-50 my-4 flex justify-between px-6 py-4">
+    <div data-testid="cartItem" key={id} className="bg-slate-50 my-4 flex justify-between px-6 py-4">
       <div className="w-9/12 px-2">
         <h3 className=" mb-4">
           {name} - Rs. {price / 100}/-
