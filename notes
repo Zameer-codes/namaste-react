@@ -1,12 +1,11 @@
-Episode - 01
-------------
+## Episode - 01
 
 React can be initialised using CDN (content delivery network)
 we are fetching react library from a hosted environment through CDN
 
 search :
-    CDN
-    crossorigin
+CDN
+crossorigin
 
 most expensive operation is manipulating nodes in DOM
 all js libraries are trying to optimise these operations
@@ -17,33 +16,17 @@ root.render will take this object and convert it to element/tag and renders
 
 CDN links should be first before any scripts since it executes in the order
 
-CDN - Content Delivery Network
-    > it is in between original server and end user
-    > this caches content by minifying it from the original server and make it available across all cdn edge servers which makes faster execution
-    > reduces carbon footprint and traffic on original server
-    > it manages different versions of cache
-    > it is being used in top FAANG MAANG companies for fastest availability and infrastructure
+CDN - Content Delivery Network > it is in between original server and end user > this caches content by minifying it from the original server and make it available across all cdn edge servers which makes faster execution > reduces carbon footprint and traffic on original server > it manages different versions of cache > it is being used in top FAANG MAANG companies for fastest availability and infrastructure
 
-Crossorigin :
-    > it is an html attribute
-    > it basically allows request resources from another domain
-    > Cors - Cross Origin Resource Sharing
-    > it is used for sharing securely and to specific domains
-    > preventing DDOS attacks
+Crossorigin : > it is an html attribute > it basically allows request resources from another domain > Cors - Cross Origin Resource Sharing > it is used for sharing securely and to specific domains > preventing DDOS attacks
 
-
-
-Episode -02
------------
+## Episode -02
 
 npm doesn't have a full form, there is no abbrevation
 it does not stand for node package manager but it manages node packages
 
 react alone does not make it faster but it requires other packages
-one of the important package is bundlers
-    > webpack
-    > vite
-    > parcel
+one of the important package is bundlers > webpack > vite > parcel
 
 -D says we install package as dev dependency
 
@@ -55,103 +38,48 @@ one of the important package is bundlers
 
 2.8.3 to 3.0.1(latest)
 
-pacakage-lock.json : 
-    - this file keeps exact version of the package to avoid local and production difference issues
-    - this makes sure to run the same version of packages so to get same output in different environments
-    - integrity is a property where it has hash of sha256 about the package which makes it unique
+pacakage-lock.json : - this file keeps exact version of the package to avoid local and production difference issues - this makes sure to run the same version of packages so to get same output in different environments - integrity is a property where it has hash of sha256 about the package which makes it unique
 
 package.json is a configuration
 
-nodemodules :
-    - when you install a package it goes to npm and pull all the code related to package along with parcel's dependencies
-    - deep nested dependencies ==> transitive dependencies
+nodemodules : - when you install a package it goes to npm and pull all the code related to package along with parcel's dependencies - deep nested dependencies ==> transitive dependencies
 
 npm --> just calling/installing the command
 npx --> executing the package
 
-Parcel : 
-    - Dev Build
-    - Local Server
-    - HMR = Hot Module Replacement
-    - File Watching Algorithm
-    - Caching - Faster Builds
-    - Image Optimisation
-    - Minification
-    - Bundling
-    - Compress
-    - Consistent Hashing
-    - Code Splitting
-    - Differential Bundling - support older browsers
-    - Diagnostic
-    - Error Handling
-    - HTTPS
-    - Tree Shaking Algorithm - remove unused code
-    - Different dev and prod bundles
+Parcel : - Dev Build - Local Server - HMR = Hot Module Replacement - File Watching Algorithm - Caching - Faster Builds - Image Optimisation - Minification - Bundling - Compress - Consistent Hashing - Code Splitting - Differential Bundling - support older browsers - Diagnostic - Error Handling - HTTPS - Tree Shaking Algorithm - remove unused code - Different dev and prod bundles
 
 npx parcel index.html --> development
 npx parcel build index.html --> production
 
 browserslist -> handles to support specified browser versions
 
+normal script tag : - html parsing will go - if script tag is encountered, then holds parsing and fetches script and executes it and then continue with parsing
 
-normal script tag :
-    - html parsing will go 
-    - if script tag is encountered, then holds parsing and fetches script and executes it and then continue with parsing
+async script tag : - if script tag is encountered, it will not hold parsing and fetches script - and then it holds parsing and executes script and then continue with parsing
 
-async script tag :
-    - if script tag is encountered, it will not hold parsing and fetches script
-    - and then it holds parsing and executes script and then continue with parsing
+defer script tag : - if script tag is encountered, it will not hold parsing and fetches script - after parsing, it will continue with script execution
 
-defer script tag :
-    - if script tag is encountered, it will not hold parsing and fetches script
-    - after parsing, it will continue with script execution
+## Episode - 03
 
+JSX : - jsx is not js+html, it is js+html like syntax - it is for developer and reading friendly - ES6 and browser does not understand jsx syntax - Babel is responsible for for transpiling(converting) jsx to js
 
-Episode - 03 
-------------
+Babel : - it is literally like converts to React.createElement output format where it gives pure js object and can be rendered by ReactDOM - it also makes code to support ES5 for older browsers
 
-JSX :
-    - jsx is not js+html, it is js+html like syntax
-    - it is for developer and reading friendly
-    - ES6 and browser does not understand jsx syntax
-    - Babel is responsible for for transpiling(converting) jsx to js
-    
-Babel :
-    - it is literally like converts to React.createElement output format where it gives pure js object and can be rendered by ReactDOM
-    - it also makes code to support ES5 for older browsers
+CSS (cross-site-scripting): - when you write js code inside jsx you use {} - JSX takes care of sanitisizing the content rendered inside {} and avoid security issues - CSS is having control of js inside the browser to the outside user
 
-CSS (cross-site-scripting):
-    - when you write js code inside jsx you use {} 
-    - JSX takes care of sanitisizing the content rendered inside {} and avoid security issues
-    - CSS is having control of js inside the browser to the outside user
+Functional Component : - it is nothing but a function which returns JSX - name should be in Pascal case - when rendering a function it should be wrapped with </>(tags) - it can also be called as a function but with {} enclosed
 
-Functional Component :
-    - it is nothing but a function which returns JSX
-    - name should be in Pascal case
-    - when rendering a function it should be wrapped with </>(tags)
-    - it can also be called as a function but with {} enclosed
-    
-
-Episode - 04
-------------
+## Episode - 04
 
 React doesn't recommend to use index as keys when rendering list
 use unique id's for keys
 
+## Episode - 05
 
+Import, Export types : - default export - named export
 
-Episode - 05
-------------
-
-Import, Export types :
-    - default export
-    - named export
-
-Reconciliation Algorithm :
-    - React Fiber(performs dom optimised manipulation) introduced in React 16
-    - Diff Algorithm responsible for finding differences between two virtual doms
-    - object representation of elements is virtual dom
-    - incremental rendering
+Reconciliation Algorithm : - React Fiber(performs dom optimised manipulation) introduced in React 16 - Diff Algorithm responsible for finding differences between two virtual doms - object representation of elements is virtual dom - incremental rendering
 
 github repo : acdlite/react-fiber-architecture
 
@@ -168,9 +96,7 @@ virtual dom existed before react, it is not a react thing but react used it effe
 
 when you update state the setstate function triggers reconciliation process and makes a re-render
 
-
-Episode - 06
-------------
+## Episode - 06
 
 - whenever you update state it will store the updated value onrun and calls the function again to re-render and assigns new value and reconciliation process takes from there
 - that's why react is faster
@@ -178,61 +104,41 @@ Episode - 06
 - useEffect
 - api fetching and rendering
 
-
-Episode - 07
-------------
+## Episode - 07
 
 - if I use useEffect with no dependency array at all then it executes for every re-render
-- react router dom 
+- react router dom
 - for navigation in react never use anchor tag <a></a>
 - because it reloads the entire page
-- use Link by react router dom 
+- use Link by react router dom
 
-2 types of Routing in Web Apps :
-    - Client Side Routing
-        - pages are built from client(browser) side and will not make request to server for html pages
-    - Server Side Routing
-        - pages are built from server side and will be fetched from server for html pages
+2 types of Routing in Web Apps : - Client Side Routing - pages are built from client(browser) side and will not make request to server for html pages - Server Side Routing - pages are built from server side and will be fetched from server for html pages
 
 - React is known as Single Page Application (SPA) because of CSR, it will not refreshes the page while routing
 
-
-Episode - 08
-------------
+## Episode - 08
 
 - clean setInterval
 
-Episode - 09
-------------
+## Episode - 09
 
 - use modularity for better testing
 - can cover complete business case for testing
 - hooks are just a utility functions
 - Splitting bundles
-    - use lazy loading for separating it out
-    - suspense wrapper
-    
-Episode - 10
-------------
+  - use lazy loading for separating it out
+  - suspense wrapper
+
+## Episode - 10
 
 - Tailwind css
 
+## Episode - 11
 
-Episode - 11
-------------
+Higher Order Components (HOC) - it takes a component and returns a component - it enhances the component - we will not modify the input component directly, we just append a feature/enhancement to the original component - at the end HOC are just a normal functions act like pure functions
 
-Higher Order Components (HOC)
-    - it takes a component and returns a component
-    - it enhances the component
-    - we will not modify the input component directly, we just append a feature/enhancement to the original component
-    - at the end HOC are just a normal functions act like pure functions
+Context - it comes with three components - createContext - Provider - Consumer (useContext)
 
-Context
-    - it comes with three components
-        - createContext
-        - Provider
-        - Consumer (useContext)
-    
     - can be created multiple contexts
     - consumer is used to access the values from context
         - in functional components, useContext(contextName)
@@ -241,49 +147,64 @@ Context
     - provider is used to wrap components where the values will be accessible inside this wrap
         - can also maintain state and inject them here and render the children
 
-
-Episode - 12
-------------
+## Episode - 12
 
 - Redux-Toolkit (@reduxjs/toolkit --> npm package)
-    - RTK Architecture
-        - Event raise
-            - dispatch action
-                - action calls reducer function
-                    - reducer updates the state/slice in the store
-                        - state is subscribed by a component
+
+  - RTK Architecture
+    - Event raise
+      - dispatch action
+        - action calls reducer function
+          - reducer updates the state/slice in the store
+            - state is subscribed by a component
 
 - there are two versions of redux
-    - vanilla redux (old and complex one)
-    - redux toolkit (new and simpler one)
+
+  - vanilla redux (old and complex one)
+  - redux toolkit (new and simpler one)
 
 - to use redux, we need two packages
-    - @reduxjs/toolkit --> for redux usage and setup
-    - react-redux --> for behavinf like a bridge between react and redux
+
+  - @reduxjs/toolkit --> for redux usage and setup
+  - react-redux --> for behavinf like a bridge between react and redux
 
 - here also similarly, we need to wrap in a provider for access like context api
 
 - redux behind the scenes uses immer package for mutating state
 
 - explore on RTQ query in redux docs
-    - refernce: https://redux-toolkit.js.org/tutorials/rtk-query
+  - refernce: https://redux-toolkit.js.org/tutorials/rtk-query
 
-
-Episode - 13
-------------
+## Episode - 13
 
 - Testing
-    - React Testing Library
-    - Jest
+
+  - React Testing Library
+  - Jest
 
 - Steps :
-    - install react testing library --> @testing-library/react
-    - install jest
-    - configure babel for jest
-    - install babel dependencies
-    - configure parcel to disable default babel transpilation
-    - jest configuration --> npx jest --init
-    - install jest-environment-jsdom for 29 above versions
-    - install @babel/preset-react to make jsx work in test cases
-    - include @babel-preset-react in babel.config.json
-    - install @testing-library/jest-dom
+  - install react testing library --> @testing-library/react
+  - install jest
+  - configure babel for jest
+  - install babel dependencies
+  - configure parcel to disable default babel transpilation
+  - jest configuration --> npx jest --init
+  - install jest-environment-jsdom for 29 above versions
+  - install @babel/preset-react to make jsx work in test cases
+  - include @babel-preset-react in babel.config.json
+  - install @testing-library/jest-dom
+
+references : - https://parceljs.org/docs/ - https://testing-library.com/docs/react-testing-library/setup - https://jestjs.io/docs/getting-started
+
+## Episode - 14
+
+- Building NetflixGpt
+
+  - built login page and header
+  - used tailwind for css
+
+- installed firebase for authentication, follow the documentation for installing
+  - after sign up in firebase, create a project there and it will provide some boiler code for setup this project in local application
+  - then execute commands provided by firebase
+  - now you can start using use cases code for the usage
+  - reference : https://firebase.google.com/docs/auth/web/password-auth?_gl=1*yu0lng*_up*MQ..&gclid=CjwKCAiA5Ka9BhB5EiwA1ZVtvATCAzB7T_sQ_yaF5P3Jo3-Jo5GkwDEfaBWMXKSgiNN6sXAWK6Bl5BoCUQEQAvD_BwE&gclsrc=aw.ds
