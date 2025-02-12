@@ -1,41 +1,20 @@
-import { useEffect } from "react";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../firebase";
-import { useDispatch } from "react-redux";
-import { currentUser, removeUser } from "../redux/userSlice";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./Login";
 import Browse from "./Browse";
+import { HOME_ROUTE, BROWSE_ROUTE } from "../utils/constants";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: HOME_ROUTE,
     element: <Login />,
   },
   {
-    path: "/browse",
+    path: BROWSE_ROUTE,
     element: <Browse />,
   },
 ]);
+
 const Body = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        const { email, uid, displayName, photoURL } = user;
-        dispatch(
-          currentUser({
-            email: email,
-            uid: uid,
-            displayName: displayName,
-            photoURL: photoURL,
-          })
-        );
-      } else {
-        dispatch(removeUser());
-      }
-    });
-  }, []);
   return <RouterProvider router={router}></RouterProvider>;
 };
 

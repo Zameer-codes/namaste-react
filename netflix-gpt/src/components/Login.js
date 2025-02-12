@@ -7,18 +7,16 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../firebase";
-import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { currentUser } from "../redux/userSlice";
+import { DEFAULT_DISPLAY_NAME, DEFAULT_PHOTO_URL } from "../utils/constants";
 
 const Login = () => {
   const [isSignInPage, setIsSignInPage] = useState(true);
   const email = useRef(null);
   const password = useRef(null);
   const [errorMessage, setErrorMessage] = useState(null);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user);
 
   const handleLoginValidation = (e) => {
     e.preventDefault();
@@ -36,9 +34,7 @@ const Login = () => {
         email.current.value,
         password.current.value
       )
-        .then((userCredential) => {
-          navigate("/browse");
-        })
+        .then((userCredential) => {})
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
@@ -54,8 +50,8 @@ const Login = () => {
           const user = userCredential.user;
 
           updateProfile(auth.currentUser, {
-            displayName: "Zameer",
-            photoURL: "https://avatars.githubusercontent.com/u/85661879?v=4",
+            displayName: DEFAULT_DISPLAY_NAME,
+            photoURL: DEFAULT_PHOTO_URL,
           })
             .then(() => {
               const { email, uid, displayName, photoURL } = auth.currentUser;
@@ -81,13 +77,11 @@ const Login = () => {
     }
   };
 
-  if (user) navigate("/browse");
-
   return (
-    <div className="w-screen h-screen object-cover bg-[url(https://assets.nflxext.com/ffe/siteui/vlv3/fb5cb900-0cb6-4728-beb5-579b9af98fdd/web/IN-en-20250127-TRIFECTA-perspective_cf66f5a3-d894-4185-9106-5f45502fc387_small.jpg)]">
-      <div className="w-screen h-screen bg-zinc-800 bg-opacity-40 relative">
-        <Header />
-        <div className="w-96 bg-black bg-opacity-80 p-8 mt-30 z-40 m-auto rounded-lg mt-20 text-white">
+    <div className="w-screen h-screen  relative object-cover bg-[url(https://assets.nflxext.com/ffe/siteui/vlv3/fb5cb900-0cb6-4728-beb5-579b9af98fdd/web/IN-en-20250127-TRIFECTA-perspective_cf66f5a3-d894-4185-9106-5f45502fc387_small.jpg)]">
+      <Header />
+      <div className="w-screen h-screen pt-44 bg-zinc-800 bg-opacity-40 relative">
+        <div className="relative w-96 h-auto bg-black bg-opacity-80 p-8 z-40  mx-auto rounded-lg text-white">
           <h2 className="text-2xl mb-4 text-center font-bold">
             {isSignInPage ? "Sign In" : "Sign Up"}
           </h2>
