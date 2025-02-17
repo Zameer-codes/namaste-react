@@ -18,7 +18,7 @@ const VideoBackground = ({ movie_id }) => {
       .catch((err) => console.error(err));
   });
   return (
-    <div>
+    <div className="pt-30 md:pt-0">
       {trailer && (
         <iframe
           className="w-screen aspect-video"

@@ -13,8 +13,8 @@ const CollectionContainer = () => {
   const movies = useSelector((state) => state.movies);
   return (
     movies && (
-      <div className=" bg-black">
-        <div className="-mt-64 relative z-20">
+      <div className=" bg-black z-30">
+        <div className="md:-mt-64  relative z-20">
           <MovieList title={"Now Playing"} movies={movies.nowPlayingMovies} />
           <MovieList title={"Popular"} movies={movies.popularMovies} />
           <MovieList title={"Top rated"} movies={movies.topRatedMovies} />

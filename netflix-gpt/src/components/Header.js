@@ -1,6 +1,6 @@
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import React, { useEffect } from "react";
-import { auth } from "../firebase";
+import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { currentUser, removeUser } from "../redux/userSlice";
@@ -13,10 +13,13 @@ import {
   HOME_ROUTE,
   NETFLIX_ICON_ALT_TEXT,
 } from "../utils/constants";
+import { setShowGptSearch } from "../redux/gptSearchSlice";
 
 const Header = () => {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
+  const showGptSearch = useSelector((state) => state.gpt.showGptSearch);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -49,27 +52,34 @@ const Header = () => {
       });
   };
   return (
-    <div className="absolute z-50 w-screen bg-gradient-to-b from-slate-900 flex justify-between">
+    <div className="absolute z-50 w-screen bg-black md:bg-gradient-to-b from-slate-900 md:flex md:justify-between">
       <img
-        className="w-60 ml-20"
+        className="md:w-60 md:h-24 md:ml-20 w-44 h-14 mx-auto"
         src={NETFLIX_LOGO_URL}
         alt={NETFLIX_ICON_ALT_TEXT}
-      />{" "}
-      {/* Use the new constant */}
+      />
       {user && (
-        <div className="flex p-4 items-center">
-          <p className="font-bold mr-4">{user.displayName}</p>
-          <img
-            src={user.photoURL}
-            className="w-10 h-10 mr-4"
-            alt={PROFILE_ALT_TEXT}
-          />
-          <img
-            src={LOGOUT_ICON_URL}
-            className="w-8 h-8 bg-red-500 p-2 rounded-lg cursor-pointer"
-            onClick={handleSignOut}
-            alt={SIGN_OUT_ALT_TEXT}
-          />
+        <div className="flex p-4 items-center justify-between">
+          <button
+            className="bg-green-700 text-white p-2 px-4 rounded-lg mr-4"
+            onClick={() => dispatch(setShowGptSearch())}
+          >
+            {showGptSearch ? "Go to Home" : "GPT Search"}
+          </button>
+          <div className="flex items-center">
+            <p className="font-bold mr-4 text-white">{user.displayName}</p>
+            <img
+              src={user.photoURL}
+              className="w-10 h-10 mr-4 hidden md:block"
+              alt={PROFILE_ALT_TEXT}
+            />
+            <img
+              src={LOGOUT_ICON_URL}
+              className="w-8 h-8 bg-red-500 p-2 rounded-lg cursor-pointer"
+              onClick={handleSignOut}
+              alt={SIGN_OUT_ALT_TEXT}
+            />
+          </div>
         </div>
       )}
     </div>

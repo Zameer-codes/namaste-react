@@ -208,3 +208,16 @@ references : - https://parceljs.org/docs/ - https://testing-library.com/docs/rea
   - then execute commands provided by firebase
   - now you can start using use cases code for the usage
   - reference : https://firebase.google.com/docs/auth/web/password-auth?_gl=1*yu0lng*_up*MQ..&gclid=CjwKCAiA5Ka9BhB5EiwA1ZVtvATCAzB7T_sQ_yaF5P3Jo3-Jo5GkwDEfaBWMXKSgiNN6sXAWK6Bl5BoCUQEQAvD_BwE&gclsrc=aw.ds
+
+## Episode - 15
+
+- Developed Browse page
+- Utilised TMDB api for movies collection
+- created custom hooks for movies api
+- utilised iframe for video embedd
+
+## Episode- 16
+
+- integrated Gemini api for AI search for movie suggestions
+- since open ai is paid so utilised gemini rest api
+- made the UI responsive to small and above medium devices

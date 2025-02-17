@@ -18,3 +18,6 @@ export const Api_Get_Options = {
     Authorization: `Bearer ${process.env.REACT_APP_TMDB_APIREADACCESSTOKEN}`,
   },
 };
+
+export const movieRecommendationQuery = (query) =>
+  `Act like a movie reccomendation system and suggestion movies based on the context of the query. query:'${query}'. provide me 5 movies only and in the format of comma separated string`;

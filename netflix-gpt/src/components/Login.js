@@ -6,7 +6,7 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { currentUser } from "../redux/userSlice";
 import { DEFAULT_DISPLAY_NAME, DEFAULT_PHOTO_URL } from "../utils/constants";
@@ -78,7 +78,7 @@ const Login = () => {
   };
 
   return (
-    <div className="w-screen h-screen  relative object-cover bg-[url(https://assets.nflxext.com/ffe/siteui/vlv3/fb5cb900-0cb6-4728-beb5-579b9af98fdd/web/IN-en-20250127-TRIFECTA-perspective_cf66f5a3-d894-4185-9106-5f45502fc387_small.jpg)]">
+    <div className="w-screen h-screen text-xs md:text-lg relative object-cover bg-[url(https://assets.nflxext.com/ffe/siteui/vlv3/fb5cb900-0cb6-4728-beb5-579b9af98fdd/web/IN-en-20250127-TRIFECTA-perspective_cf66f5a3-d894-4185-9106-5f45502fc387_small.jpg)]">
       <Header />
       <div className="w-screen h-screen pt-44 bg-zinc-800 bg-opacity-40 relative">
         <div className="relative w-96 h-auto bg-black bg-opacity-80 p-8 z-40  mx-auto rounded-lg text-white">
